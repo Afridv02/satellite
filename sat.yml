@@ -1,6 +1,8 @@
 ---
 - name: "Upload my.rpm"
-  redhat.satellite.content_upload:
+  hosts: all
+  task:
+   redhat.satellite.content_upload:
     username: "admin"
     password: "redhat"
     server_url: "https://sat614.example.com"
