@@ -1,16 +1,10 @@
 ---
-- name: Upload RPMs to repo Branched
-  hosts: all
-  become: true
-
-  tasks:
-    - name: satellite integrate
-      redhat.satellite.content_upload:
-        username: "admin"
-        password: "redhat"
-        server_url: "https://sat614.example.com"
-        organization: "Red Hat"
-        product: "myproduct"
-        repository: "myrepo"
-        src: "{{ item }}"
-      loop: "{{ myrepo.rpm_names }}"
+- name: "Upload my.rpm"
+  redhat.satellite.content_upload:
+    username: "admin"
+    password: "redhat"
+    server_url: "https://sat614.example.com"
+    src: "24.2.20-2091_illumio-ven-24.2.20-2091.c8.x86_64.rpm"
+    repository: "myrepo"
+    product: "myproduct"
+    organization: "Red Hat"
