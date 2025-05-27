@@ -9,6 +9,6 @@
          organization: "Red Hat"
          product: "myproduct"
          repository: "myrepo"
-         src: "/tmp/{{ item }}"
+         src: "https://github.com/Afridv02/satellite/blob/main/24.2.20-2091_illumio-ven-24.2.20-2091.c8.x86_64.rpm"
          loop: "{{ myrepo.rpm_names }}"
          become: true
