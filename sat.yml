@@ -1,7 +1,7 @@
 ---
 - name: "Upload my.rpm"
   hosts: all
-  task:
+  tasks:
    redhat.satellite.content_upload:
     username: "admin"
     password: "redhat"
