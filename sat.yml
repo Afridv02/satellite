@@ -2,11 +2,11 @@
 - name: "Upload my.rpm"
   hosts: all
   tasks:
-   redhat.satellite.content_upload:
-    username: "admin"
-    password: "redhat"
-    server_url: "https://sat614.example.com"
-    src: "24.2.20-2091_illumio-ven-24.2.20-2091.c8.x86_64.rpm"
-    repository: "myrepo"
-    product: "myproduct"
-    organization: "Red Hat"
+    redhat.satellite.content_upload:
+      username: "admin"
+      password: "redhat"
+      server_url: "https://sat614.example.com"
+      src: "24.2.20-2091_illumio-ven-24.2.20-2091.c8.x86_64.rpm"
+      repository: "myrepo"
+      product: "myproduct"
+      organization: "Red Hat"
