@@ -1,13 +1,14 @@
    ---
-   - name: Upload rpms to repo Branched
-     redhat.satellite.content_upload:
-       username: "admin"
-       password: "redhat"
-       server_url: "https://sat614.example.com"
-       organization: "Red Hat"
-       product: "myproduct"
-       repository: "my_repo"
-       src: "/tmp/{{ item }}"
-       loop: "{{ nexus.rpm_names }}"
-       become: true
-	   delegate_to: "{{ My-satellitehost }}"
+   - name: Upload RPMs to repo Branched
+     hosts: all
+     - tasks: satellite integrate
+       redhat.satellite.content_upload:
+         username: "admin"
+         password: "redhat"
+         server_url: "https://sat614.example.com"
+         organization: "Red Hat"
+         product: "myproduct"
+         repository: "myrepo"
+         src: "/tmp/{{ item }}"
+         loop: "{{ myrepo.rpm_names }}"
+         become: true
