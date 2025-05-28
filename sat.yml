@@ -3,6 +3,8 @@
   hosts: all
   collections:
     - redhat.satellite
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   tasks:
     - name: Upload RPM to Satellite
       redhat.satellite.content_upload:
