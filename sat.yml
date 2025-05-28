@@ -1,12 +1,19 @@
 ---
 - name: "Upload my.rpm"
   hosts: all
+  become: true
+  collections:
+    - redhat.satellite
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   tasks:
-    redhat.satellite.content_upload:
-      username: "admin"
-      password: "redhat"
-      server_url: "https://sat614.example.com"
-      src: "24.2.20-2091_illumio-ven-24.2.20-2091.c8.x86_64.rpm"
-      repository: "myrepo"
-      product: "myproduct"
-      organization: "Red Hat"
+    - name: Upload RPM to Satellite
+      redhat.satellite.content_upload:
+        username: "admin"
+        password: "RedHat1!"
+        server_url: "https://bgajjava-rhsat.syslab.pnq2.redhat.com/users/login"
+        organization: "RedHat"
+        validate_certs: false
+        product: "myproduct"
+        repository: "myrepo"
+        src: "~/scap-security-guide-0.1.63-5.el9.noarch.rpm"
