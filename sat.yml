@@ -11,7 +11,7 @@
         server_url: "{{ sat_url }}"
         organization: "{{ sat_organization }}"
         validate_certs: false
-        product: "{{ nexus.to_sat_product }}"
-        repository: "{{ nexus.to_sat_repo }}"
+        product: "{{ to_sat_product }}"
+        repository: "{{ to_sat_repo }}"
         src: "/tmp/{{ item }}"
        
