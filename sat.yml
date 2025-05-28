@@ -1,5 +1,6 @@
 ---
 - name: Upload rpms to repo Branched
+  hosts: all
   collections:
     - redhat.satellite
   tasks:
@@ -13,4 +14,4 @@
         product: "{{ nexus.to_sat_product }}"
         repository: "{{ nexus.to_sat_repo }}"
         src: "/tmp/{{ item }}"
-        delegate_to: "{{ My-satellitehost }}"
+       
