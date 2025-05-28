@@ -1,19 +1,13 @@
 ---
-- name: "Upload my.rpm"
-  hosts: all
-  become: true
-  collections:
-    - redhat.satellite
-  vars:
-    ansible_python_interpreter: /usr/bin/python3
-  tasks:
-    - name: Upload RPM to Satellite
-      redhat.satellite.content_upload:
-        username: "admin"
-        password: "RedHat1!"
-        server_url: "https://bgajjava-rhsat.syslab.pnq2.redhat.com/users/login"
-        organization: "RedHat"
-        validate_certs: false
-        product: "myproduct"
-        repository: "myrepo"
-        src: "~/scap-security-guide-0.1.63-5.el9.noarch.rpm"
+- name: Upload rpms to repo Branched
+  redhat.satellite.content_upload:
+    username: "{{ sat_admin_user }}"
+    password: "{{ satgitops_admin_password }}"
+    server_url: "{{ sat_url }}"
+    organization: "{{ sat_organization }}"
+    validate_certs: false
+    product: "{{ nexus.to_sat_product }}"
+    repository: "{{ nexus.to_sat_repo }}"
+    src: "/tmp/{{ item }}"
+    become: true
+    delegate_to: "{{ My-satellitehost }}"
