@@ -1,0 +1,13 @@
+---
+- name: Upload rpms to repo Branched
+  redhat.satellite.content_upload:
+    username: "{{ sat_admin_user }}"
+    password: "{{ satgitops_admin_password }}"
+    server_url: "{{ sat_url }}"
+    organization: "{{ sat_organization }}"
+    validate_certs: false
+    product: "{{ nexus.to_sat_product }}"
+    repository: "{{ nexus.to_sat_repo }}"
+    src: "/tmp/{{ item }}"
+    become: true
+    delegate_to: "{{ My-satellitehost }}"
